@@ -16,7 +16,7 @@ variable "listen_port" {
 
 variable "users" {
   description = "The list of users to be created in PgBouncer's userlist.txt. Passwords can be provided as plain-text or md5 hashes."
-  type        = list
+  type        = list(any)
 }
 
 variable "auth_user" {
@@ -65,6 +65,11 @@ variable "custom_config" {
   description = "Custom PgBouncer configuration values to be appended to `pgbouncer.ini`."
   type        = string
   default     = ""
+}
+
+variable "pgbouncer_image_name" {
+  description = "The name to use for the base PgBouncer image. `edoburu/pgbouncer` Docker image is used by default."
+  default     = "edoburu/pgbouncer"
 }
 
 variable "pgbouncer_image_tag" {

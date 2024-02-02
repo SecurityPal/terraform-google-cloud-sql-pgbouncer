@@ -8,18 +8,19 @@ locals {
 module "pgbouncer_cloud_init" {
   source = "./modules/pgbouncer_cloud_init"
 
-  pgbouncer_image_tag = var.pgbouncer_image_tag
-  listen_port         = var.port
-  database_host       = var.database_host
-  database_port       = 5432
-  users               = var.users
-  auth_user           = var.auth_user
-  auth_query          = var.auth_query
-  default_pool_size   = var.default_pool_size
-  max_db_connections  = var.max_db_connections
-  max_client_conn     = var.max_client_connections
-  pool_mode           = var.pool_mode
-  custom_config       = var.pgbouncer_custom_config
+  pgbouncer_image_name = var.pgbouncer_image_name
+  pgbouncer_image_tag  = var.pgbouncer_image_tag
+  listen_port          = var.port
+  database_host        = var.database_host
+  database_port        = 5432
+  users                = var.users
+  auth_user            = var.auth_user
+  auth_query           = var.auth_query
+  default_pool_size    = var.default_pool_size
+  max_db_connections   = var.max_db_connections
+  max_client_conn      = var.max_client_connections
+  pool_mode            = var.pool_mode
+  custom_config        = var.pgbouncer_custom_config
 }
 
 data "google_compute_image" "boot" {

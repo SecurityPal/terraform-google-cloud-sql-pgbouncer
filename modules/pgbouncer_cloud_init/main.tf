@@ -23,7 +23,7 @@ locals {
 data "template_file" "cloud_config" {
   template = file("${path.module}/templates/cloud-init.yaml.tmpl")
   vars = {
-    image       = "edoburu/pgbouncer:${var.pgbouncer_image_tag}"
+    image       = "${var.pgbouncer_image_name}:${var.pgbouncer_image_tag}"
     listen_port = var.listen_port
     config      = base64encode(local.cloud_config)
     userlist    = base64encode(local.userlist)

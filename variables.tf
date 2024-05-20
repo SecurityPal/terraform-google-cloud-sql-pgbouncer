@@ -72,6 +72,11 @@ variable "pgbouncer_custom_config" {
   default     = ""
 }
 
+variable "pgbouncer_image_name" {
+  description = "The name to use for the base PgBouncer image. `edoburu/pgbouncer` Docker image is used by default."
+  default     = "edoburu/pgbouncer"
+}
+
 variable "pgbouncer_image_tag" {
   description = "The tag to use for the base PgBouncer `edoburu/pgbouncer` Docker image used by this module."
   default     = "latest"
